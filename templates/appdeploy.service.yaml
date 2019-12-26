@@ -1,0 +1,20 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ template "appdeploy.fullname" . }}
+  labels:
+    app: {{ template "appdeploy.name" . }}
+    chart: {{ template "appdeploy.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    component: appdeploy
+spec:
+  selector:
+    app: {{ template "appdeploy.name" . }}
+    release: {{ .Release.Name }}
+    component: appdeploy
+  type: {{ .Values.appdeploy.service.type }}
+  ports:
+  - name: {{ .Release.Name }}
+    port: 80
+    targetPort: 80

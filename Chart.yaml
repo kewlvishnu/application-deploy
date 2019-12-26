@@ -1,0 +1,15 @@
+apiVersion: v1
+name: application-deploy
+version: 1.4.0
+appVersion: 19.12.25
+description: private application deploy
+keywords:
+- ethereum
+- blockchain
+home: https://www.infernos.io/
+sources:
+- https://integro.io
+maintainers:
+- name: Vishnu Korde
+  email: vishnu.korde@integro.io
+icon: https://www.ethereum.org/images/logos/ETHEREUM-LOGO_PORTRAIT_Black_small.png

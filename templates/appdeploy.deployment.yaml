@@ -1,0 +1,35 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "appdeploy.fullname" . }}
+  labels:
+    app: {{ template "appdeploy.name" . }}
+    chart: {{ template "appdeploy.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    component: appdeploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "appdeploy.name" . }}
+      release: {{ .Release.Name }}
+      component: appdeploy
+  template:
+    metadata:
+      labels:
+        app: {{ template "appdeploy.name" . }}
+        release: {{ .Release.Name }}
+        component: appdeploy
+    spec:
+      containers:
+      - name: appdeploy
+        image: {{ .Values.appdeploy.image.repository }}:{{ .Values.appdeploy.image.tag }}
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+        args:
+        - "--blockTime=10"
+        - "--account=0xe2b4f36af2b5206d8becc403cbfeecad0da89d7e79c7d15b35f5b9e535bb9d75,1000000000000000000000"
