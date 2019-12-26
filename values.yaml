@@ -1,5 +1,5 @@
 appdeploy:
-  domain: private.testnet.infernos.io
+  domain: private-testnet.infernos.io
   path: app1
   whitelistIP: "true"
   whitelistIPlist: "173.48.233.154/32,0.0.0.0/0"
