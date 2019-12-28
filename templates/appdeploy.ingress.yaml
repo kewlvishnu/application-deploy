@@ -32,7 +32,14 @@ spec:
   - host: {{ .Values.appdeploy.domain }}
     http:
       paths:
+      {{ if eq .Values.appdeploy.root "false" }}
       - path: /{{ .Values.appdeploy.path }}
         backend:
           serviceName: {{ template "appdeploy.fullname" . }}
           servicePort: {{ .Release.Name }}
+      {{ end }}
+      {{ if eq .Values.appdeploy.root "true" }}
+      - backend:
+          serviceName: {{ template "appdeploy.fullname" . }}
+          servicePort: {{ .Release.Name }}
+      {{ end }}     
