@@ -30,7 +30,5 @@ spec:
         - name: http
           containerPort: 3000
           protocol: TCP
-        args:
-        - "npm"
-        - "start"
-        - "/my-app/."
+        command: ["/bin/sh"]
+        args: ["-c", "npm start /my-app/."]

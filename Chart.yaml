@@ -1,7 +1,7 @@
 apiVersion: v1
 name: application-deploy
 version: 1.4.0
-appVersion: 19.12.2
+appVersion: 19.12.5
 description: private application deploy
 keywords:
 - ethereum
