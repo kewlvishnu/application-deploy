@@ -31,4 +31,4 @@ spec:
           containerPort: 3000
           protocol: TCP
         command: ["/bin/sh"]
-        args: ["-c", "npm start --prefix /my-app/."]
+        args: ["-c", {{ .Values.appdeploy.image.command }}]

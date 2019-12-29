@@ -9,5 +9,6 @@ appdeploy:
   image:
     repository: nginx
     tag: latest
+    command: "npm start --prefix /my-app/."
   service:
     type: ClusterIP
