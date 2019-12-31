@@ -1,5 +1,4 @@
 appdeploy:
-  external: true
   domain: private-testnet.infernos.io
   root: "false"
   path: app1
@@ -13,3 +12,5 @@ appdeploy:
     command: "npm start --prefix /my-app/."
   service:
     type: ClusterIP
+externalaccess:
+  enabled: true

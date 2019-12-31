@@ -1,3 +1,4 @@
+{{- if .Values.externalaccess.enabled }}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -43,3 +44,4 @@ spec:
           serviceName: {{ template "appdeploy.fullname" . }}
           servicePort: {{ .Release.Name }}
       {{ end }}
+{{ end }}
