@@ -1,6 +1,6 @@
 apiVersion: extensions/v1beta1
-{{ if eq .Values.appdeploy.external "true" }}
 kind: Ingress
+{{ if eq .Values.appdeploy.external "true" }}
 metadata:
   name: {{ template "appdeploy.fullname" . }}
   labels:
