@@ -1,6 +1,5 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
-{{ if eq .Values.appdeploy.external "true" }}
 metadata:
   name: {{ template "appdeploy.fullname" . }}
   labels:
@@ -44,4 +43,3 @@ spec:
           serviceName: {{ template "appdeploy.fullname" . }}
           servicePort: {{ .Release.Name }}
       {{ end }}
-{{ end }}
