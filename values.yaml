@@ -6,6 +6,8 @@ appdeploy:
   whitelistIPlist: "173.48.233.154/32,0.0.0.0/0"
   authentication: "false"
   secret: "user:$apr1$wRzQ30hZ$EAUtmbpk83sbzMw/NaQJj0"
+  directcommand: "true"
+  onlyargs: "false"
   image:
     repository: nginx
     tag: latest
