@@ -1,4 +1,5 @@
 appdeploy:
+  external: true
   domain: private-testnet.infernos.io
   root: "false"
   path: app1
