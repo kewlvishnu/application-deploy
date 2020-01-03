@@ -30,7 +30,7 @@ spec:
         - name: http
           containerPort: 3000
           protocol: TCP
-        {{- if .Values.appdeploy.image.directcommand -}}
+        {{- if eq .Values.appdeploy.image.directcommand "true"}}
         command: ["/bin/sh"]
         args: ["-c", {{ .Values.appdeploy.image.command }}]
         {{- else }}
