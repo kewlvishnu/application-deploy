@@ -16,5 +16,5 @@ spec:
   type: {{ .Values.appdeploy.service.type }}
   ports:
   - name: {{ .Release.Name }}
-    port: 3000
-    targetPort: 3000
+    port: {{ .Values.appdeploy.image.port }}
+    targetPort: {{ .Values.appdeploy.image.port }}

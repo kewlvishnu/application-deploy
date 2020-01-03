@@ -9,6 +9,7 @@ appdeploy:
   image:
     repository: nginx
     tag: latest
+    port: 3000
     directcommand: "true"
     command: "npm start --prefix /my-app/."
     args: ['--arg3', 'value3', '--arg2', 'value2']

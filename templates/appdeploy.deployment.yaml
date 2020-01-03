@@ -28,7 +28,7 @@ spec:
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         ports:
         - name: http
-          containerPort: 3000
+          containerPort: {{ .Values.appdeploy.image.port }}
           protocol: TCP
         {{- if eq .Values.appdeploy.image.directcommand "true"}}
         command: ["/bin/sh"]
