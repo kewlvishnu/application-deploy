@@ -14,5 +14,5 @@ appdeploy:
     args: "test"
   service:
     type: ClusterIP
-externalaccess:
-  enabled: true
+  externalaccess:
+    enabled: true

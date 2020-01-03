@@ -1,4 +1,4 @@
-{{- if .Values.externalaccess.enabled }}
+{{- if .Values.appdeploy.externalaccess.enabled }}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -15,33 +15,33 @@ metadata:
   {{- end }}
   {{- end }}
   annotations:
-    {{ if eq .Values.appdeploy.whitelistIP "true" }}
+    {{- if eq .Values.appdeploy.whitelistIP "true" }}
     ingress.kubernetes.io/whitelist-x-forwarded-for: "true"
     traefik.ingress.kubernetes.io/whitelist-source-range: {{ .Values.appdeploy.whitelistIPlist }}
-    {{ end }}
+    {{- end }}
   {{- if .Values.appdeploy.ingress }}
   {{- range $key, $value := .Values.appdeploy.ingress.annotations }}
     {{ $key }}: {{ $value | quote }}
   {{- end }}
   {{- end }}
-    {{ if eq .Values.appdeploy.authentication "true" }}
+    {{- if eq .Values.appdeploy.authentication "true" }}
     traefik.ingress.kubernetes.io/auth-type: "basic"
     traefik.ingress.kubernetes.io/auth-secret: {{ .Release.Name }}-secret
-    {{ end }}
+    {{- end }}
 spec:
   rules:
   - host: {{ .Values.appdeploy.domain }}
     http:
       paths:
-      {{ if eq .Values.appdeploy.root "false" }}
+      {{- if eq .Values.appdeploy.root "false" }}
       - path: /{{ .Values.appdeploy.path }}
         backend:
           serviceName: {{ template "appdeploy.fullname" . }}
           servicePort: {{ .Release.Name }}
-      {{ end }}
-      {{ if eq .Values.appdeploy.root "true" }}
+      {{- end }}
+      {{- if eq .Values.appdeploy.root "true" }}
       - backend:
           serviceName: {{ template "appdeploy.fullname" . }}
           servicePort: {{ .Release.Name }}
-      {{ end }}
-{{ end }}
+      {{- end }}
+{{- end }}
