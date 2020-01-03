@@ -11,8 +11,8 @@ appdeploy:
     tag: latest
     directcommand: "true"
     command: "npm start --prefix /my-app/."
-    args: "test"
   service:
     type: ClusterIP
   externalaccess:
     enabled: true
+args: ['--arg3', 'value3', '--arg2', 'value2']

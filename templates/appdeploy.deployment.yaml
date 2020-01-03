@@ -34,5 +34,10 @@ spec:
         command: ["/bin/sh"]
         args: ["-c", {{ .Values.appdeploy.image.command }}]
         {{- else }}
-        args: [{{ .Values.appdeploy.image.args }}]
+        {{- with .Values.args }}
+        args:
+        {{- range . }}
+          - {{ . | quote }}
+        {{- end }}
+        {{- end }}
         {{- end }}
