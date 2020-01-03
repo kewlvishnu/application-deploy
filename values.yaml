@@ -13,9 +13,9 @@ appdeploy:
     command: "npm start --prefix /my-app/."
     args: ['--arg3', 'value3', '--arg2', 'value2']
     env:
-      MYSQL_ROOT_PASSWORD: value
-      MYSQL_ALLOW_EMPTY_PASSWORD: value
-      MYSQL_RANDOM_ROOT_PASSWORD: value
+      env1: valueA
+      env2: valueB
+      env3: valueC
   service:
     type: ClusterIP
   externalaccess:
