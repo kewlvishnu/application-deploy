@@ -1,4 +1,4 @@
-{{- if .Values.appdeploy.externalaccess.enabled }}
+{{- if .Values.appdeploy.externalaccess.enabled -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
