@@ -40,13 +40,13 @@ spec:
           - {{ . | quote }}
         {{- end }}
         {{- end }}
-        {{- if or $.Values.env $.Values.envSecrets }}
+        {{- if or $.Values.appdeploy.image.env $.Values.appdeploy.image.envSecrets }}
         env:
-          {{- range $key, $value := $.Values.env }}
+          {{- range $key, $value := $.Values.appdeploy.image.env }}
           - name: {{ $key }}
             value: {{ $value | quote }}
           {{- end }}
-          {{- range $key, $secret := $.Values.envSecrets }}
+          {{- range $key, $secret := $.Values.appdeploy.image.envSecrets }}
           - name: {{ $key }}
             valueFrom:
               secretKeyRef:
