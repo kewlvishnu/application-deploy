@@ -12,11 +12,11 @@ appdeploy:
     port: 3000
     directcommand: "true"
     command: "npm start --prefix /my-app/."
-    args: ['--arg3', 'value3', '--arg2', 'value2']
+#    args: ['--arg3', 'value3', '--arg2', 'value2']
     env:
-      env1: valueA
-      env2: valueB
-      env3: valueC
+#      env1: valueA
+#      env2: valueB
+#      env3: valueC
   service:
     type: ClusterIP
   externalaccess:
